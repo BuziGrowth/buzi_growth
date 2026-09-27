@@ -1,69 +1,236 @@
-import Image from "next/image";
+// app/page.tsx
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const workflow = [
+  { title: "New customer", icon: "01" },
+  { title: "Capture details", icon: "02" },
+  { title: "Update CRM", icon: "03" },
+  { title: "Send email", icon: "04" },
+  { title: "Notify team", icon: "05" },
+];
 
 export default function Home() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActive((current) => (current + 1) % workflow.length);
+    }, 1300);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main>
+
+      <section className="hero">
+        <div className="heroGlow" />
+
+        <div className="heroContent">
+          <div className="eyebrow">
+            <span className="pulse" />
+            BUSINESS AUTOMATION
+          </div>
+
+          <h1>
+            Automate the work.
+            <br />
+            <span>Grow your business.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p>
+            We build custom automations that eliminate repetitive work,
+            connect your business tools, and keep your operations moving.
+          </p>
+
+          <div className="heroActions">
+            <Link href="/services" className="button primary">
+              Book an Automation Service
+              <span>↗</span>
+            </Link>
+
+            <Link href="/services" className="button secondary">
+              Explore Services
+            </Link>
+          </div>
+
+          <div className="promise">
+            <span>✦</span>
+            Get your automation running within a week.
+          </div>
+        </div>
+
+        <div className="workflowWindow">
+          <div className="windowTop">
+            <div className="windowDots">
+              <i />
+              <i />
+              <i />
+            </div>
+
+            <div className="windowTitle">BUZIGROWTH / WORKFLOW</div>
+
+            <div className="live">
+              <span />
+              LIVE
+            </div>
+          </div>
+
+          <div className="workflow">
+            {workflow.map((item, index) => (
+              <div
+                key={item.title}
+                className={`workflowItem ${
+                  index === active ? "active" : ""
+                } ${index < active ? "completed" : ""}`}
+              >
+                <div className="node">
+                  <span>{item.icon}</span>
+                </div>
+
+                <div className="nodeText">
+                  <small>
+                    {index === 0
+                      ? "TRIGGER"
+                      : index === workflow.length - 1
+                      ? "ACTION"
+                      : "AUTOMATION"}
+                  </small>
+                  <strong>{item.title}</strong>
+                </div>
+
+                {index !== workflow.length - 1 && (
+                  <div className={`connector ${index < active ? "filled" : ""}`}>
+                    <span />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="windowFooter">
+            <span>Automation status</span>
+            <strong>Running automatically</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="problem section">
+        <div className="sectionLabel">WHY BUZIGROWTH</div>
+
+        <div className="splitHeading">
+          <h2>
+            Stop doing work
+            <br />
+            <span>software can do.</span>
+          </h2>
+
+          <p>
+            Your team shouldn't have to spend hours copying information,
+            sending repetitive emails, checking spreadsheets, or reminding
+            customers to take the next step.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="problemGrid">
+          {[
+            ["01", "Manual data entry", "→", "Automatically captured"],
+            ["02", "Repetitive emails", "→", "Automatically sent"],
+            ["03", "Missed follow-ups", "→", "Automatically scheduled"],
+            ["04", "Disconnected tools", "→", "Automatically connected"],
+          ].map(([number, before, arrow, after]) => (
+            <div className="problemCard" key={number}>
+              <span className="cardNumber">{number}</span>
+              <div>
+                <p>{before}</p>
+                <div className="cardArrow">
+                  <span>{arrow}</span>
+                  {after}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="how section">
+        <div className="sectionLabel">HOW IT WORKS</div>
+
+        <div className="splitHeading">
+          <h2>
+            From manual work
+            <br />
+            <span>to automated.</span>
+          </h2>
+
+          <p>
+            We take the process your team repeats every day and turn it into a
+            workflow that runs in the background.
+          </p>
+        </div>
+
+        <div className="steps">
+          {[
+            [
+              "01",
+              "Tell us what you do manually",
+              "Show us the process that's taking your team's time.",
+            ],
+            [
+              "02",
+              "We design the automation",
+              "We map the workflow and determine what can be automated.",
+            ],
+            [
+              "03",
+              "We build and test it",
+              "Your automation is built, tested, and refined with you.",
+            ],
+            [
+              "04",
+              "Your automation goes live",
+              "Your workflow starts handling the repetitive work for you.",
+            ],
+          ].map(([number, title, description]) => (
+            <div className="step" key={number}>
+              <span>{number}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="ctaGlow" />
+
+        <div className="sectionLabel">READY TO AUTOMATE?</div>
+
+        <h2>
+          What could your business
+          <br />
+          <span>stop doing manually?</span>
+        </h2>
+
+        <p>
+          Tell us about your workflow and we'll help turn the repetitive parts
+          into automation.
+        </p>
+
+        <Link href="/services" className="button primary large">
+          Book an Automation Service
+          <span>↗</span>
+        </Link>
+      </section>
+
+    </main>
   );
 }
+
+
+
