@@ -52,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     logo: "https://buzigrowth.com/buzigrowth-logo.png",
     email: "support@buzigrowth.com",
     description:
-      "BUZIGROWTH is a creator marketing platform where businesses launch campaigns and creators earn from genuine views and clicks.",
+    "BuziGrowth builds custom business automations that eliminate repetitive work and connect the tools your business already uses.",
     sameAs: [
       "https://x.com/buzigrowth",
       "https://instagram.com/buzigrowth",
@@ -98,6 +98,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify(organization),
           }}
         />
+          <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-X85L6K190L"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-X85L6K190L');
+          `}
+        </Script>
       </body>
 
     </html>

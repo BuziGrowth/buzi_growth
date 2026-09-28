@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="/about">About Us</Link>
         </nav>
 
-        <Link href="/services" className="navButton desktopCTA">
+        <Link href="/book" className="navButton desktopCTA">
           Book a Service <span>↗</span>
         </Link>
 
@@ -54,7 +54,7 @@ export default function Navbar() {
         </Link>
 
         <Link
-          href="/services"
+          href="/book"
           className="mobileMenuCTA"
           onClick={() => setOpen(false)}
         >
