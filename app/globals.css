@@ -1,7 +1,5 @@
 @import "tailwindcss";
-
-
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");*/
 
 :root {
   --bg: #070908;
@@ -789,6 +787,377 @@ footer {
   display: none;
 }
 
+/* BOOK PAGE */
+
+.bookHero {
+  width: min(1180px, calc(100% - 48px));
+  margin: auto;
+  padding: 125px 0 80px;
+}
+
+.bookHero h1 {
+  margin: 28px 0 24px;
+  font-size: clamp(50px, 7vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -5px;
+}
+
+.bookHero h1 span {
+  color: var(--green);
+}
+
+.bookHero p {
+  max-width: 590px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.bookSection {
+  width: min(1180px, calc(100% - 48px));
+  margin: auto;
+  padding-bottom: 130px;
+}
+
+.bookingForm {
+  border-top: 1px solid var(--border-light);
+}
+
+.formSection {
+  padding: 65px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.formSectionHeader {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.formSectionHeader > span {
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.formSectionHeader h2 {
+  margin: 0 0 8px;
+  font-size: 25px;
+  letter-spacing: -0.8px;
+}
+
+/*.formSectionHeader p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}*/
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.inputField,
+.textareaField,
+.serviceSelectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.inputField label,
+.textareaField label,
+.serviceSelectWrapper label {
+  color: #858d83;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.inputField input,
+.textareaField textarea,
+.serviceSelectWrapper select {
+  width: 100%;
+  border: 1px solid var(--border-light);
+  background: #0b0e0c;
+  color: var(--text);
+  padding: 15px;
+  outline: none;
+  font-family: var(--sans);
+  font-size: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.inputField input::placeholder,
+.textareaField textarea::placeholder {
+  color: #4e554e;
+}
+
+.inputField input:focus,
+.textareaField textarea:focus,
+.serviceSelectWrapper select:focus {
+  border-color: rgba(183, 255, 75, 0.45);
+}
+
+.textareaField textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.7;
+}
+
+.textareaField + .textareaField {
+  margin-top: 25px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.categoryOption {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 65px;
+  padding: 15px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: #9da49b;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.categoryOption:hover {
+  border-color: rgba(183, 255, 75, 0.25);
+  color: var(--text);
+}
+
+.categoryOption.selected {
+  border-color: rgba(183, 255, 75, 0.5);
+  background: rgba(183, 255, 75, 0.06);
+  color: var(--text);
+}
+
+.categoryCheck {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #343a34;
+  color: var(--green);
+  font-size: 10px;
+}
+
+.categoryOption.selected .categoryCheck {
+  border-color: var(--green);
+}
+
+.serviceSelectWrapper {
+  margin-top: 25px;
+}
+
+.serviceSelectWrapper select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.serviceSelectWrapper select option {
+  background: #0b0e0c;
+  color: var(--text);
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.timelineOption {
+  cursor: pointer;
+}
+
+.timelineOption input {
+  display: none;
+}
+
+.timelineOption span {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid var(--border-light);
+  color: #929a90;
+  font-size: 11px;
+  transition: 0.2s ease;
+}
+
+.timelineOption input:checked + span {
+  color: var(--text);
+  border-color: rgba(183, 255, 75, 0.45);
+  background: rgba(183, 255, 75, 0.06);
+}
+
+.formSectionHeader p {
+  margin: 0;
+  color: #858e84;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.formBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 45px;
+}
+
+.formBottom > div > span {
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.formBottom p {
+  color: #555d54;
+  font-size: 10px;
+  margin: 8px 0 0;
+}
+
+.submitButton {
+  border: none;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+/* SUCCESS */
+
+.bookSuccess {
+  width: min(800px, calc(100% - 48px));
+  min-height: 700px;
+  margin: auto;
+  padding: 150px 0;
+  text-align: center;
+}
+
+.successIcon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(183, 255, 75, 0.45);
+  color: var(--green);
+  font-family: var(--mono);
+}
+
+.bookSuccess h1 {
+  margin: 25px 0;
+  font-size: clamp(48px, 6vw, 75px);
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+.bookSuccess h1 span {
+  color: var(--green);
+}
+
+.bookSuccess > p {
+  max-width: 530px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+.successContact {
+  margin: 35px auto;
+  padding: 20px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 11px;
+}
+
+.successContact span {
+  color: #626a61;
+}
+
+.successContact a {
+  color: var(--green);
+  font-family: var(--mono);
+}
+
+/* BOOK RESPONSIVE */
+
+@media (max-width: 800px) {
+  .bookHero {
+    width: calc(100% - 30px);
+    padding: 90px 0 60px;
+  }
+
+  .bookHero h1 {
+    letter-spacing: -3px;
+  }
+
+  .bookSection {
+    width: calc(100% - 30px);
+  }
+
+  .formSection {
+    padding: 45px 0;
+  }
+
+  .formSectionHeader {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+
+  .formSectionHeader h2 {
+    font-size: 21px;
+  }
+
+  .formGrid,
+  .categoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formBottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .successContact {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .timelineGrid {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 800px) {
  
 

@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              <Link href="#book" className="serviceLink">
+              <Link href="/book" className="serviceLink">
                 Book this service <span>↗</span>
               </Link>
             </div>
