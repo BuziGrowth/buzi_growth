@@ -80,6 +80,7 @@ const services = [
       "Develop the applications your business needs.",
     items: [
       "Web Development",
+      "Mobile App Development",
       "Desktop App Development",
       "Backend Service",
      
@@ -136,14 +137,14 @@ export default function ServicesPage() {
         <div className="sectionLabel">NOT SURE WHAT YOU NEED?</div>
 
         <h2>
-          Tell us what you're
+          Tell us what you&apos;re
           <br />
           <span>doing manually.</span>
         </h2>
 
         <p>
-          If you're repeating it, copying it, checking it, or reminding
-          someone about it, there's a good chance we can automate it.
+          If you&apos;re repeating it, copying it, checking it, or reminding
+          someone about it, there&apos;s a good chance we can automate it.
         </p>
 
         <a

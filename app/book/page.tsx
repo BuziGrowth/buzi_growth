@@ -50,6 +50,12 @@ const services = {
     "Database connections",
     "Custom workflows",
   ],
+  "App/Web Development": [
+    "Mobile Apps",
+    "Web Apps",
+    "Desktop Apps",
+    
+  ],
 };
 
 type ServiceCategory = keyof typeof services;
@@ -100,13 +106,13 @@ export default function BookPage() {
           <div className="sectionLabel">REQUEST RECEIVED</div>
 
           <h1>
-            Let's automate
+            Let&apos;s automate
             <br />
             <span>your business.</span>
           </h1>
 
           <p>
-            We've received your automation request. We'll review your workflow
+            We&apos;ve received your automation request. We&apos;ll review your workflow
             and get back to you using the contact details you provided.
           </p>
 
@@ -140,7 +146,7 @@ export default function BookPage() {
 
         <p>
           Tell us a little about your business and the work you'd like to
-          automate. We'll review your request and get in touch.
+          automate. We&apos;ll review your request and get in touch.
         </p>
       </section>
 
