@@ -24,7 +24,7 @@ export const sendEmail = async (data:Details)=>{
 
 		await resend.emails.send({
 			to:"technerds200@gmail.com",
-			from:"buzizgrowthplatform@buzigrowth.com",
+			from:"order@buzigrowth.com",
 			text:JSON.stringify(data),
 			subject:"New Customer"
 		})
